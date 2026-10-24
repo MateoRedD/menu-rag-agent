@@ -30,10 +30,12 @@ python -m eval.run_eval                  # compare chunking strategies
 
 ## Results
 
-| Strategy |   hit@1   |   hit@3   |   MRR@5   |
-|----------|  -------  |  -------  |  -------  | 
-| item     |    0.98   |   1.00    |   0.97    |
-| fixed    |    0.78   |   1.00    |    0.88   |
+18 questions (9 Spanish, 9 English), `item` = 21 chunks, `fixed` = 13 chunks:
+
+| Strategy | hit@1 | hit@3 | MRR@5 |
+|----------|-------|-------|-------|
+| item     | 0.94  | 1.00  | 0.97  |
+| fixed    | 0.78  | 1.00  | 0.88  |
 
 **What I learned:** _(fill in after running the evaluation)_
 
