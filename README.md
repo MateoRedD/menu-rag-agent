@@ -37,7 +37,21 @@ python -m eval.run_eval                  # compare chunking strategies
 | item     | 0.94  | 1.00  | 0.97  |
 | fixed    | 0.78  | 1.00  | 0.88  |
 
-**What I learned:** _(fill in after running the evaluation)_
+## What I learned
+
+- **Structure-aware chunking wins at rank 1** (hit@1 0.94 vs 0.78). All four `fixed` misses
+  were chunks cut mid-sentence: for "group of 8" the top result started with "de 6 personas o más…"
+  and the actual answer ("24 horas de anticipación") had fallen into the previous window.
+- **The section prefix helps, but adds noise.** The only `item` miss, "¿Dónde queda el restaurante?",
+  ranked *Opening hours* first because every policy chunk starts with "Políticas del restaurante".
+- **The eval is too easy.** hit@3 is 1.00 for both strategies because the top 3 is already 14% of a
+  21-chunk corpus, so it can't tell the strategies apart. Substring matching is also lenient: a
+  half-cut chunk still counts as a hit.
+- **Top-k always returns k results**, even irrelevant ones ("Do you deliver to Riomar?" brings
+  carimañolas at 0.27 similarity in 3rd place). The agent needs a similarity threshold before
+  passing context to the LLM.
+- **Cross-lingual retrieval works, with lower scores**: English questions against the Spanish menu
+  score ~0.42 vs ~0.57 for Spanish, but the ranking is still correct.
 
 ## Roadmap
 
