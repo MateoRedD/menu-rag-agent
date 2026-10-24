@@ -10,6 +10,11 @@ load_dotenv()
 
 EMBED_MODEL = "text-embedding-3-small"
 
+# Floor for "clearly off-topic" (weather, pets). Measured with eval/questions.jsonl: every answerable
+# question scores >= 0.25, but some unanswerable ones score up to 0.43, so no single threshold separates
+# in-scope from out-of-scope. Deciding "we don't have that" is left to the LLM and the system prompt.
+MIN_SIMILARITY = 0.20
+
 
 @lru_cache
 def openai_client():
@@ -64,10 +69,11 @@ def embed(texts: list[str]) -> list[list[float]]:
     return [d.embedding for d in resp.data]
 
 
-def search(query: str, strategy: str = "item", k: int = 3) -> list[dict]:
+def search(query: str, strategy: str = "item", k: int = 3, min_similarity: float = 0.0) -> list[dict]:
+    """Top-k chunks by cosine similarity, dropping those below min_similarity (0 keeps all k)."""
     query_embedding = embed([query])[0]
     resp = db().rpc(
         "match_documents",
         {"query_embedding": query_embedding, "match_count": k, "filter_strategy": strategy},
     ).execute()
-    return resp.data
+    return [r for r in resp.data if r["similarity"] >= min_similarity]

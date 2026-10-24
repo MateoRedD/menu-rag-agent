@@ -16,3 +16,11 @@
 {"q": "How much is the posta negra?", "lang": "en", "expected": ["36.000"]}
 {"q": "¿Cuánto se demora la mojarra?", "lang": "es", "expected": ["25 minutos"]}
 {"q": "Do you have any coconut drinks?", "lang": "en", "expected": ["Limonada de coco"]}
+{"q": "¿Tienen sushi?", "lang": "es", "expected": []}
+{"q": "Do you have pizza?", "lang": "en", "expected": []}
+{"q": "¿Tienen wifi?", "lang": "es", "expected": []}
+{"q": "Can I bring my dog?", "lang": "en", "expected": []}
+{"q": "¿Hay música en vivo los viernes?", "lang": "es", "expected": []}
+{"q": "What's the weather like tomorrow?", "lang": "en", "expected": []}
+{"q": "¿Tienen menú infantil?", "lang": "es", "expected": []}
+{"q": "Do you sell gift cards?", "lang": "en", "expected": []}
