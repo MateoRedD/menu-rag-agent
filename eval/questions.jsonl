@@ -1,0 +1,18 @@
+{"q": "¿Tienen algo vegetariano de plato fuerte?", "lang": "es", "expected": ["Hamburguesa de lentejas"]}
+{"q": "Do you deliver to Riomar?", "lang": "en", "expected": ["Riomar"]}
+{"q": "¿Hasta qué hora abren el sábado?", "lang": "es", "expected": ["11:00 p. m."]}
+{"q": "Can I pay with Nequi?", "lang": "en", "expected": ["Nequi"]}
+{"q": "¿Cuánto cuesta el domicilio?", "lang": "es", "expected": ["gratis en pedidos"]}
+{"q": "I'm allergic to shellfish, what should I watch out for?", "lang": "en", "expected": ["mariscos"]}
+{"q": "¿Qué días hay sancocho?", "lang": "es", "expected": ["Solo sábados y domingos"]}
+{"q": "Is there parking?", "lang": "en", "expected": ["parqueadero"]}
+{"q": "¿Necesito reservar para un grupo de 8 personas?", "lang": "es", "expected": ["24 horas de anticipación"]}
+{"q": "What fish dishes do you have?", "lang": "en", "expected": ["Mojarra", "Arroz de lisa"]}
+{"q": "¿Tienen postres sin gluten?", "lang": "es", "expected": ["Enyucado", "Cocadas"]}
+{"q": "How long does delivery take?", "lang": "en", "expected": ["40 a 60 minutos"]}
+{"q": "¿Dónde queda el restaurante?", "lang": "es", "expected": ["Calle 84"]}
+{"q": "Do you sell beer?", "lang": "en", "expected": ["Águila"]}
+{"q": "¿Qué sabores de jugo tienen?", "lang": "es", "expected": ["lulo"]}
+{"q": "How much is the posta negra?", "lang": "en", "expected": ["36.000"]}
+{"q": "¿Cuánto se demora la mojarra?", "lang": "es", "expected": ["25 minutos"]}
+{"q": "Do you have any coconut drinks?", "lang": "en", "expected": ["Limonada de coco"]}
