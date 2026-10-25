@@ -1,0 +1,10 @@
+# Keeps secrets and junk out of the build context. This matters most for `az containerapp up --source .`,
+# which uploads the build context to Azure to build the image there.
+.env
+.venv/
+.git/
+__pycache__/
+.pytest_cache/
+tests/
+eval/
+README.md
