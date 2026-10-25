@@ -1,0 +1,27 @@
+# Runs the offline unit tests on every push and pull request.
+# Integration tests (pytest -m integration) are excluded by pytest.ini: they need API keys and cost money.
+name: Unit tests
+
+on:
+  push:
+  pull_request:
+
+# Least privilege: the job only needs to read the code.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"  # same as local development and the Docker image
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - run: pip install -r requirements-dev.txt
+
+      - run: pytest -v
