@@ -1,24 +1,7 @@
-"""Unit tests for the agent tools. OpenAI and Supabase are faked, so nothing is written to the database."""
-from types import SimpleNamespace
-
+"""Unit tests for the agent tools. OpenAI and Supabase are faked (see the `inserted` fixture in conftest.py)."""
 import pytest
 
 import tools
-
-
-@pytest.fixture
-def inserted(monkeypatch):
-    """Fake Supabase client: records every insert as (table, row) and returns id 1."""
-    rows = []
-
-    def table(name):
-        def insert(row):
-            rows.append((name, row))
-            return SimpleNamespace(execute=lambda: SimpleNamespace(data=[{"id": 1, **row}]))
-        return SimpleNamespace(insert=insert)
-
-    monkeypatch.setattr(tools, "db", lambda: SimpleNamespace(table=table))
-    return rows
 
 
 def arepas(quantity=2):
