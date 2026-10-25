@@ -98,6 +98,7 @@ tools.py              the three agent tools
 agent.py              system prompt, language detection, agent setup
 chat.py               interactive CLI
 api.py                HTTP API: auth, rate limit, logging
+client.py             terminal client for the HTTP API (local or deployed)
 ask.py                inspect what the retriever returns
 eval/                 retrieval evaluation (26 questions) and handoff classification eval (50 messages)
 tests/                unit tests (offline) and integration tests (real API)
@@ -124,6 +125,7 @@ Run `sql/schema.sql` and then `sql/phase2.sql` once in the Supabase SQL Editor, 
 python ingest.py                           # chunk, embed and store
 python chat.py                             # talk to the agent
 uvicorn api:app --reload                   # run the HTTP API on http://localhost:8000
+python client.py --url https://<your-app>  # chat through the API (local by default), shows tools used
 python ask.py "Do you deliver to Riomar?"  # inspect what the retriever returns
 python -m eval.run_eval                    # retrieval evaluation
 pytest                                     # unit tests: offline, free
