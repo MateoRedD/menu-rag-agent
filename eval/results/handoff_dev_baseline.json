@@ -1,0 +1,825 @@
+{
+ "split": "dev",
+ "model": "gpt-4.1-mini",
+ "runs_per_message": 3,
+ "run_at": "2026-10-25T21:29:23+00:00",
+ "tp": 7,
+ "fp": 1,
+ "fn": 5,
+ "tn": 17,
+ "precision": 0.875,
+ "recall": 0.5833333333333334,
+ "f1": 0.7000000000000001,
+ "messages": [
+  {
+   "id": "P04",
+   "text": "The waiter was rude to us last night. I want to file a complaint.",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "complaint",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm sorry to hear about your experience. A person from our team will follow up with you soon to address your complaint. Thank you for letting us know."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm sorry to hear about your experience. A person from our team will follow up with you soon to address your complaint. Thank you for letting us know."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm sorry to hear about your experience. A person from our team will follow up with you soon to address your complaint. Thank you for letting us know."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "complaint"
+  },
+  {
+   "id": "P05",
+   "text": "Tengo alergia severa al maní, ¿me pueden garantizar que la comida no tiene trazas?",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "allergy",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tenemos una política de alérgenos que indica que no podemos garantizar ausencia total de trazas, ya que la cocina maneja varios alérgenos. Por tu alergia severa al maní, voy a pasar tu caso a una persona del equipo para que te brinde la mejor atención. Alguien del equipo te contactará pronto."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tenemos una política de alérgenos y no podemos garantizar ausencia total de trazas, ya que la cocina maneja varios alérgenos. Por tu alergia severa al maní, un miembro de nuestro equipo te atenderá personalmente para ayudarte mejor."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tenemos una política de alérgenos que indica que no podemos garantizar ausencia total de trazas, ya que la cocina maneja varios alérgenos. Por tu alergia severa al maní, voy a pasar tu consulta a una persona del equipo para que te brinde la mejor atención. Alguien del equipo te contactará pronto."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "allergy"
+  },
+  {
+   "id": "P07",
+   "text": "I have celiac disease and a severe gluten reaction. Can you guarantee no cross-contamination?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "allergy",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee the complete absence of gluten traces due to shared kitchen handling gluten, dairy, fish, and seafood. If you have celiac disease or a severe gluten allergy, please inform the waiter or indicate it in your order so they can take extra care. There are some gluten-free options like Cocadas, Enyucado, and Pechuga a la plancha. Would you like to know more about these or other dishes?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee the complete absence of gluten traces due to shared kitchen handling gluten, dairy, fish, and seafood. If you have a gluten allergy, please inform the waiter or indicate it in your order so they can take extra care. There are some gluten-free options like Cocadas, Enyucado, and Pechuga a la plancha. Would you like to know more about these or other dishes?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee the complete absence of gluten traces due to shared kitchen handling gluten, dairy, fish, and seafood. If you have a gluten allergy, please inform the waiter or indicate it in your order. There are some gluten-free options like Cocadas, Enyucado, and Pechuga a la plancha. Would you like to know more about these or other dishes?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "P08",
+   "text": "I carry an EpiPen for a dairy allergy. Is anything on the menu 100% safe for me?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "allergy",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee any dish is 100% free of dairy traces because all dishes are prepared in a kitchen that handles dairy. If you have a dairy allergy, please inform the waiter or indicate it in your order for extra caution. Would you like me to help you find dishes that do not contain dairy as an ingredient?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee any dish is 100% free of dairy traces because all dishes are prepared in a kitchen that handles dairy. If you have a dairy allergy, please inform the waiter or indicate it in your order for extra caution. Would you like me to help you find dishes that do not contain dairy as an ingredient?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant cannot guarantee any dish is 100% free of dairy traces because all dishes are prepared in a kitchen that handles dairy. If you have a dairy allergy, you should inform the waiter or indicate it in your order.\n\nFrom the menu, the \"Hamburguesa de lentejas\" can be vegan if ordered without mayonnaise, which means it would be dairy-free. However, cross-contamination risk remains.\n\nWould you like to know more about this dish or other options?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "P09",
+   "text": "Quiero reservar para 10 personas el sábado a las 8 p. m.",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "group_booking",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para reservas de 6 o más personas, deben hacerse por WhatsApp con al menos 24 horas de anticipación. Un miembro de nuestro equipo te contactará pronto para ayudarte con la reserva. ¡Gracias!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para reservas de 6 o más personas, el restaurante pide hacerlas por WhatsApp con al menos 24 horas de anticipación. Un miembro del equipo te contactará para ayudarte con la reserva. ¡Gracias!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para grupos de 6 personas o más, las reservas se hacen por WhatsApp con mínimo 24 horas de anticipación. Un miembro de nuestro equipo te contactará para ayudarte con la reserva para 10 personas el sábado a las 8 p. m. ¡Gracias por tu comprensión!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "group_booking"
+  },
+  {
+   "id": "P12",
+   "text": "We're a group of 8 coworkers, can we reserve for tomorrow at noon?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "group_booking",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For groups of 6 or more, reservations must be made via WhatsApp with at least 24 hours in advance. A person from our team will follow up with you to assist with your reservation for tomorrow at noon."
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For groups of 6 or more, reservations must be made via WhatsApp with at least 24 hours in advance. A team member will follow up with you to assist with your reservation for 8 people tomorrow at noon."
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For groups of 6 or more, reservations must be made via WhatsApp with at least 24 hours in advance. A person from our team will follow up with you to assist with your reservation for tomorrow at noon."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "group_booking"
+  },
+  {
+   "id": "P13",
+   "text": "Quiero hablar con una persona, no con un bot.",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "other",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "Un miembro de nuestro equipo humano te atenderá pronto. Gracias por tu paciencia."
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "Un miembro de nuestro equipo humano te atenderá pronto. Gracias por tu paciencia."
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "Un miembro de nuestro equipo humano te atenderá pronto. Gracias por tu paciencia."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "other"
+  },
+  {
+   "id": "P14",
+   "text": "¿Me puede atender el administrador, por favor?",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "other",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "Un miembro de nuestro equipo le atenderá pronto. ¿En qué más puedo ayudarle mientras tanto?"
+    },
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "Un miembro de nuestro equipo le atenderá pronto. ¿En qué más puedo ayudarle mientras tanto?"
+    },
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "Un miembro de nuestro equipo le atenderá pronto. ¿En qué más puedo ayudarle mientras tanto?"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "unknown_answer"
+  },
+  {
+   "id": "P16",
+   "text": "Please transfer me to a manager.",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "other",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you!"
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you for your patience!"
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you for your patience!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "other"
+  },
+  {
+   "id": "P17",
+   "text": "¿Tienen wifi para los clientes?",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "unknown_answer",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No encontré información sobre wifi para clientes en el restaurante. ¿Quieres que te ayude con otra consulta?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No encontré información sobre wifi para clientes en el restaurante. ¿Quieres que te ayude con otra consulta?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No encontré información sobre wifi para clientes en el restaurante. ¿Quieres que te ayude con otra consulta?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "P18",
+   "text": "¿Puedo llevar a mi perro al restaurante?",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "unknown_answer",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El restaurante no menciona una política específica sobre llevar perros, por lo que no puedo confirmar si está permitido. ¿Quieres que te ayude con otra consulta?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El restaurante no menciona una política sobre llevar perros, por lo que no tengo información sobre si se permite o no. ¿Quieres que te ayude con otra consulta?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El restaurante no menciona una política específica sobre llevar perros, por lo que no puedo confirmar si está permitido. ¿Quieres que te ayude con otra consulta?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "P19",
+   "text": "Do you host private events or rent the whole place?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "unknown_answer",
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "We do not mention renting the whole place for private events. However, we do accept reservations for groups of 6 or more people, which must be made via WhatsApp at least 24 hours in advance. For smaller groups, no reservation is needed. If you want, I can connect you with a team member for more details."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "We do not mention renting the whole place for private events. However, we do accept reservations for groups of 6 or more people, which must be made via WhatsApp at least 24 hours in advance. Smaller groups do not require a reservation. If you want, I can connect you with someone from our team for more details."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "We do not mention renting the whole place for private events. However, we accept reservations for groups of 6 or more people, which must be made via WhatsApp at least 24 hours in advance. For smaller groups, no reservation is needed. If you want, I can connect you with a team member for more details."
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N03",
+   "text": "¿Tienen opciones vegetarianas?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, tenemos opciones vegetarianas como la Hamburguesa de lentejas (puede ser vegana si se pide sin mayonesa), Carimañolas (yuca rellena de queso costeño) y Patacones con hogao y queso costeño rallado. ¿Quieres que te cuente más o te interesa ordenar alguna?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, tenemos opciones vegetarianas como la Hamburguesa de lentejas (puede ser vegana si se pide sin mayonesa), Carimañolas (yuca rellena de queso costeño) y Patacones con hogao y queso costeño rallado. ¿Quieres que te cuente más o te interesa ordenar alguna?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, tenemos opciones vegetarianas como la Hamburguesa de lentejas (puede ser vegana si se pide sin mayonesa), Carimañolas (rellenas de queso costeño) y Patacones con hogao y queso costeño rallado. ¿Quieres que te cuente más o te interesa ordenar alguna?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N07",
+   "text": "Somos 5, ¿hay que reservar?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Para grupos de 5 personas no es necesario reservar. Solo se requiere reserva para grupos de 6 personas o más con mínimo 24 horas de anticipación. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Para 5 personas no es necesario hacer reserva. Solo se requiere reserva para grupos de 6 personas o más con mínimo 24 horas de anticipación. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Para grupos de 5 personas no es necesario hacer reserva. ¿Quieres que te ayude con algo más?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N08",
+   "text": "Do I need a reservation for two people tonight?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You do not need a reservation for two people tonight. Reservations are only required for groups of 6 or more, and they must be made at least 24 hours in advance. Enjoy your visit!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You do not need a reservation for two people tonight. Reservations are only required for groups of 6 or more, and they must be made at least 24 hours in advance. Enjoy your visit!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You do not need a reservation for two people tonight. Reservations are only required for groups of 6 or more, and they must be made at least 24 hours in advance. Enjoy your visit!"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N10",
+   "text": "La comida estuvo buenísima, ¡gracias!",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "¡Qué alegría saber que disfrutaste la comida! Si necesitas algo más o quieres ordenar otra vez, aquí estoy para ayudarte. 😊🍽️"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "¡Qué alegría saber que disfrutaste la comida! Si necesitas algo más o quieres ordenar otra vez, aquí estoy para ayudarte. 😊"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "¡Qué alegría saber que disfrutaste la comida! Si necesitas algo más o quieres ordenar otra vez, aquí estoy para ayudarte. 😊"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N11",
+   "text": "Todo muy rico, aunque el sancocho estaba un poquito salado.",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Gracias por tu comentario. Un miembro de nuestro equipo te contactará pronto para ayudarte con lo del sancocho. ¿Hay algo más en lo que pueda ayudarte mientras tanto?"
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Gracias por tu comentario, una persona del equipo se pondrá en contacto contigo para ayudarte con lo del sancocho. ¿Hay algo más en lo que pueda ayudarte mientras tanto?"
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Gracias por tu comentario. Un miembro de nuestro equipo se pondrá en contacto contigo para ayudarte con lo del sancocho. ¿Hay algo más en lo que pueda ayudarte mientras tanto?"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "complaint"
+  },
+  {
+   "id": "N13",
+   "text": "The patacones were delicious, I'll come back.",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "I'm glad you enjoyed the patacones! Looking forward to having you back soon. If you want to order anything else or need help, just let me know!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "I'm glad you enjoyed the patacones! We look forward to welcoming you back soon. If you want to try anything else or need help, just let me know!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "I'm glad you enjoyed the patacones! We look forward to welcoming you back soon. If you need anything else or want to order, just let me know!"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N14",
+   "text": "¿Hacen domicilios a Riomar?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, hacemos domicilios a Riomar. El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. ¿Quieres hacer un pedido para domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, hacemos domicilios a Riomar. El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. ¿Quieres hacer un pedido para domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, hacemos domicilios a Riomar. El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. ¿Quieres hacer un pedido para domicilio?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N16",
+   "text": "¿Cuánto se demora un domicilio?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El tiempo estimado de entrega de domicilios es de 40 a 60 minutos. ¿Quieres hacer un pedido para domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El domicilio se demora entre 40 y 60 minutos en llegar. ¿Quieres hacer un pedido a domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El domicilio se demora entre 40 y 60 minutos en llegar. ¿Quieres hacer un pedido para domicilio?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N17",
+   "text": "How much is the posta negra?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Posta negra cartagenera costs 36,000 COP. Would you like to order it?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Posta negra cartagenera costs 36,000 COP. Would you like to order it?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Posta negra cartagenera costs 36,000 COP. Would you like to order it?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N18",
+   "text": "Do you deliver to El Golf?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Yes, we do deliver to El Golf. The delivery fee is 5,000 COP, but it's free for orders over 80,000 COP. Delivery time is estimated between 40 to 60 minutes. Would you like to place an order for delivery there?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Yes, we do deliver to El Golf. The delivery fee is 5,000 COP, but it's free for orders over 80,000 COP. Delivery time is estimated between 40 to 60 minutes. Would you like to place an order for delivery there?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Yes, we do deliver to El Golf. The delivery fee is 5,000 COP, but it's free for orders over 80,000 COP. Delivery time is estimated between 40 to 60 minutes. Would you like to place an order for delivery?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N19",
+   "text": "What time do you close on Sunday?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "On Sundays, we close at 5:00 p.m. If you need anything else, just ask!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "On Sundays, we close at 5:00 p.m. If you need anything else, just ask!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "On Sundays, we close at 5:00 p.m. If you need anything else, just ask!"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N20",
+   "text": "Quiero pedir 2 arepas de huevo y una limonada de coco a domicilio a Riomar, soy Ana.",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Ana, tu pedido es 2 Arepas de huevo y 1 Limonada de coco para entrega en Riomar. El costo total es 28,000 COP, incluyendo 5,000 COP de domicilio. ¿Confirmas el pedido?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Ana, tu pedido es 2 Arepas de huevo y 1 Limonada de coco para domicilio en Riomar. El costo de domicilio es 5.000 COP y el total es 28.000 COP. ¿Confirmas el pedido?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Ana, tu pedido sería 2 Arepas de huevo y 1 Limonada de coco para entrega en Riomar. El domicilio tiene un costo de 5000 COP y el total es 28000 COP. ¿Confirmas el pedido?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N22",
+   "text": "I'd like to order a lentil burger for delivery to Alto Prado, my name is Sam.",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You can order the Hamburguesa de lentejas, which is a lentil and carrot patty in artisanal bread with avocado, lettuce, and rustic potatoes. It's vegan if you ask for it without mayonnaise. Would you like to add any special notes or just the regular one? How many would you like?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Lentil Burger includes a lentil and carrot patty on artisanal bread with avocado, lettuce, and rustic potatoes. It's vegan if you ask for it without mayonnaise. The price is 25,000 COP. How many would you like to order for delivery to Alto Prado, Sam?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You can order the Hamburguesa de lentejas for delivery. It's a lentil and carrot patty in artisanal bread with avocado, lettuce, and rustic potatoes. It's vegan if you ask without mayonnaise. The price is 25,000 COP. Would you like to confirm this order for delivery to Alto Prado? If yes, please tell me the quantity."
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N24",
+   "text": "¿Tienen sushi?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, no tenemos sushi en el menú. ¿Quieres que te cuente sobre otras opciones que tenemos?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, no tenemos sushi en el menú. ¿Quieres que te cuente sobre otras opciones?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, no tenemos sushi en el menú. ¿Quieres que te cuente sobre otras opciones que tenemos?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N25",
+   "text": "¿Venden pizza?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, en el restaurante no venden pizza según el menú disponible. ¿Quieres que te ayude con otra cosa?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, el restaurante no ofrece pizza en el menú. ¿Quieres que te ayude con otra cosa?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No, el restaurante no ofrece pizza en el menú. ¿Quieres que te ayude con otra cosa?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N27",
+   "text": "Do you serve beef burgers?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant does not offer beef burgers. Would you like to know about other types of burgers or dishes?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant does not offer beef burgers. Would you like to know about other types of burgers or dishes?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "We don't have beef burgers on the menu. Would you like to know about other types of burgers or dishes we offer?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N29",
+   "text": "Can one person eat the patacones alone, or is it for sharing?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Patacones con hogao are a portion for sharing (6 units). So, they are meant to be shared rather than eaten alone by one person."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Patacones con hogao are a portion for sharing (6 units). So, they are meant to be shared rather than eaten alone by one person."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The Patacones con hogao are a portion for sharing (6 units). So, they are meant to be shared rather than eaten alone by one person."
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N30",
+   "text": "My friend complained the place was hard to find. What's the address?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "dev",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant is located at Calle 84 # 45-20, barrio Alto Prado, Barranquilla. There is free parking for customers. Let me know if you want any other info!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant is located at Calle 84 # 45-20, barrio Alto Prado, Barranquilla. There is free parking for customers. Let me know if you want any other info!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The restaurant is located at Calle 84 # 45-20, barrio Alto Prado, Barranquilla. There is free parking for customers. Let me know if you want any other info!"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  }
+ ]
+}

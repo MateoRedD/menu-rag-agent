@@ -99,7 +99,7 @@ agent.py              system prompt, language detection, agent setup
 chat.py               interactive CLI
 api.py                HTTP API: auth, rate limit, logging
 ask.py                inspect what the retriever returns
-eval/                 retrieval evaluation (26 labeled questions)
+eval/                 retrieval evaluation (26 questions) and handoff classification eval (50 messages)
 tests/                unit tests (offline) and integration tests (real API)
 Dockerfile            container image for the API
 .github/workflows/    CI: unit tests on every push
@@ -184,10 +184,49 @@ Similarity floor of 0.20 on `item`: keeps the relevant chunk for 18/18 answerabl
 
 **Tests**
 
-- 52 unit tests (no API), run in CI on every push: price parsing, totals and the free-delivery boundary, order validation, the similarity floor, the tools (with Supabase faked), language detection, and the HTTP API (auth, input limits, error handling, rate limit with a fake clock, all with the agent faked).
+- 57 unit tests (no API), run in CI on every push: price parsing, totals and the free-delivery boundary, order validation, the similarity floor, the tools (with Supabase faked), language detection, the HTTP API (auth, input limits, error handling, rate limit with a fake clock, all with the agent faked), and the precision/recall formulas of the handoff eval.
 - 15 integration tests (real model and retrieval, database writes faked): Spanish and English answers, a follow-up question using memory, out-of-scope questions (sushi, pizza, kids' menu), quote vs. confirmed order, rejected orders (delivery outside the zones, sancocho on a Tuesday), handoffs for a complaint, a severe allergy, a group booking and a request for a person, and a prompt-injection attempt.
 
 The integration tests check behavior (which tool was called, with which arguments, the reply language, the total), not exact wording, because model output varies slightly between runs.
+
+## Handoff classification eval
+
+The handoff decision is evaluated as a binary classifier. Positive class = the message should go to a human; prediction = the agent called `handoff_to_human`.
+
+- **Dataset** (`eval/handoff_dataset.jsonl`): 50 single-turn messages, 25 Spanish and 25 English. 20 positives (complaints, severe allergies, bookings for 6 or more, asking for a person, questions about the restaurant the menu doesn't cover) and 30 hard negatives that look like positives but shouldn't be handed off (gluten-free or dairy questions, a group of 4 or 5, compliments, delivery and price questions, normal orders, dishes the menu doesn't have, messages that only contain words like "person" or "complained"). I set the labels from the business rules; the model never labels.
+- **Split**: dev 30 / test 20, stratified by label and language, seed 42, written into the file by `eval/split_handoff_dataset.py`, which refuses to re-split.
+- **Procedure**: the real agent and real retrieval, with database writes faked. 3 runs per message; headline numbers use the majority vote. The prompt was tuned only on dev; test was run once at the end (`eval/handoff_eval.py` refuses a second test run).
+- **Priority: recall.** A missed handoff (a severe allergy left unattended) costs more than an unnecessary one (a few minutes of staff time), so precision was allowed to drop.
+
+| | Precision | Recall | F1 | Reason correct |
+|---|---|---|---|---|
+| Dev, baseline prompt | 0.88 (7/8) | 0.58 (7/12) | 0.70 | 6/7 |
+| Dev, final prompt | 0.91 (10/11) | 0.83 (10/12) | 0.87 | 10/10 |
+| **Test, final prompt (run once)** | **0.89 (8/9)** | **1.00 (8/8)** | **0.94** | **8/8** |
+
+Test confusion matrix (majority vote):
+
+| | Predicted handoff | Predicted no handoff |
+|---|---|---|
+| **Should hand off** | TP = 8 | FN = 0 |
+| **Shouldn't** | FP = 1 | TN = 11 |
+
+What changed on dev (details in `eval/handoff_iterations.md`):
+
+1. **Severe allergies**: the agent gave the allergen policy and stopped. The prompt now defines a severe allergy (a serious reaction described, or a safety guarantee asked for) and requires the policy *and* a handoff. Recall went from 0.58 to 0.75.
+2. **Questions the menu doesn't cover**: the agent correctly said "I don't have that information" but didn't hand off. The prompt now separates a dish or drink that isn't on the menu ("we don't offer it") from other questions about the restaurant ("I don't have that information" + handoff). Recall reached 0.92, then 0.83 after a wording-only fix to the same rule flipped one borderline message, which shows how fragile prompt changes are. Dish questions like sushi were still not handed off.
+3. A last change (call the tool before replying) didn't move the metrics. The prompt was frozen there, as decided before seeing that result.
+
+Remaining errors: on dev, two Spanish "not covered" questions (wifi, dogs) still get "No tengo información" without a handoff, plus one false positive accepted on purpose (mild feedback treated as a complaint). On test, one false positive: "I'm allergic to shellfish, what should I avoid?", an allergy without severity, which the recall-first rules now hand off.
+
+**Limits**
+
+- **Small sample.** Test has 8 positives, so one missed handoff moves recall by 12.5 points. Test scoring higher than dev is mostly composition: dev's remaining errors are Spanish "not covered" questions, and test has only one question of that kind (in English). Test's 8/8 doesn't mean the agent never misses a handoff.
+- **Single-turn messages only**, while real conversations escalate over several turns.
+- **My labels.** They encode my reading of the business rules, and the borderline cases (an allergy without "severe", mild feedback, exactly 5 or 6 people) could reasonably be labeled the other way.
+- **I wrote the dataset and also tuned the prompt**, so I knew the test messages. To limit that, every change came from a dev error and was written as a general rule, but it can't be ruled out completely.
+- **The 40% share of positives is higher than in real traffic**, so precision in production would be lower than measured here; recall doesn't depend on that share.
+- One model (`gpt-4.1-mini`, temperature 0) and 3 runs per message; the runs agreed on 49 of 50 messages.
 
 ## What I learned
 

@@ -1,0 +1,555 @@
+{
+ "split": "test",
+ "model": "gpt-4.1-mini",
+ "runs_per_message": 3,
+ "run_at": "2026-10-25T21:50:28+00:00",
+ "tp": 8,
+ "fp": 1,
+ "fn": 0,
+ "tn": 11,
+ "precision": 0.8888888888888888,
+ "recall": 1.0,
+ "f1": 0.9411764705882353,
+ "messages": [
+  {
+   "id": "P01",
+   "text": "Pedí un domicilio hace dos horas y todavía no llega, esto es una falta de respeto.",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "complaint",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho la demora con tu domicilio. Un miembro de nuestro equipo te atenderá pronto para ayudarte con esto. Gracias por tu paciencia."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho la demora con tu domicilio. Un miembro de nuestro equipo se pondrá en contacto contigo pronto para ayudarte con esto. Gracias por tu paciencia."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho la demora con tu domicilio. Un miembro de nuestro equipo te va a contactar pronto para ayudarte con esto. Gracias por tu paciencia."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "complaint"
+  },
+  {
+   "id": "P02",
+   "text": "La mojarra que me trajeron estaba cruda por dentro. Quiero que me devuelvan el dinero.",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "complaint",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho lo que pasó con la mojarra. Un miembro de nuestro equipo se pondrá en contacto contigo pronto para ayudarte con la devolución. Gracias por tu comprensión."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho lo que pasó con la mojarra. Un miembro de nuestro equipo se pondrá en contacto contigo para ayudarte con la devolución. Gracias por tu comprensión."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "Lamento mucho lo que pasó con la mojarra. Un miembro de nuestro equipo se pondrá en contacto contigo pronto para ayudarte con la devolución."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "complaint"
+  },
+  {
+   "id": "P03",
+   "text": "My order arrived cold and half of it was missing. I'm really upset.",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "complaint",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm really sorry to hear that your order arrived cold and incomplete. A person from our team will follow up with you shortly to resolve this. Thank you for your patience."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm really sorry to hear that your order arrived cold and incomplete. A person from our team will follow up with you shortly to resolve this. Thank you for your patience."
+    },
+    {
+     "handoff": true,
+     "reason": "complaint",
+     "reply": "I'm really sorry to hear that your order arrived cold and incomplete. A person from our team will follow up with you shortly to resolve this. Thank you for your patience."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "complaint"
+  },
+  {
+   "id": "P06",
+   "text": "Mi hijo es alérgico a los mariscos y le da anafilaxia, ¿qué puede comer sin riesgo?",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "allergy",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tu hijo tiene una alergia severa a los mariscos que puede causar anafilaxia, y para garantizar su seguridad es mejor que un miembro de nuestro equipo te asesore directamente. Alguien del equipo te seguirá para ayudarte."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tu hijo tiene una alergia severa a los mariscos que puede causar anafilaxia. En nuestro restaurante no podemos garantizar la ausencia total de trazas de mariscos, ya que se preparan en la misma cocina. Por seguridad, un miembro de nuestro equipo te ayudará personalmente para orientarte mejor. Por favor, espera un momento."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Tu hijo tiene una alergia grave a los mariscos y en nuestra cocina se manejan mariscos, por lo que no podemos garantizar ausencia total de trazas y evitar riesgos. Por eso, un miembro de nuestro equipo especializado te ayudará personalmente para asegurar la mejor atención. Por favor, espera un momento que te contactarán pronto."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "allergy"
+  },
+  {
+   "id": "P10",
+   "text": "Somos 6 y queremos una mesa para el cumpleaños de mi mamá el domingo.",
+   "lang": "es",
+   "should_handoff": true,
+   "expected_reason": "group_booking",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para grupos de 6 o más personas, un miembro de nuestro equipo te ayudará personalmente con la reserva. Alguien se pondrá en contacto contigo pronto para coordinar todo para el cumpleaños de tu mamá. ¡Gracias por avisarnos!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para grupos de 6 o más personas, un miembro de nuestro equipo se encargará de ayudarte con la reserva. En breve alguien te contactará para coordinar todo para el cumpleaños de tu mamá. ¿Hay algo más en lo que pueda ayudarte mientras tanto?"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "Para una reserva de 6 personas, un miembro de nuestro equipo se pondrá en contacto contigo para ayudarte con los detalles del cumpleaños de tu mamá. ¡Gracias por elegirnos!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "group_booking"
+  },
+  {
+   "id": "P11",
+   "text": "Can I book a table for 12 people next Friday?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "group_booking",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For a group of 12 people, a team member will follow up with you to assist with the booking. Thank you!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For a group of 12 people, a team member will follow up with you to assist with the reservation. Thank you!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For a group of 12 people, a team member will follow up with you to assist with the booking. Thank you!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "group_booking"
+  },
+  {
+   "id": "P15",
+   "text": "Can I talk to a real person, please?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "other",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you for your patience!"
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you for your patience!"
+    },
+    {
+     "handoff": true,
+     "reason": "other",
+     "reply": "A person from our team will follow up with you shortly. Thank you for your patience!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "other"
+  },
+  {
+   "id": "P20",
+   "text": "Is the restaurant wheelchair accessible?",
+   "lang": "en",
+   "should_handoff": true,
+   "expected_reason": "unknown_answer",
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "I don't have information about wheelchair accessibility at the restaurant. A person from our team will follow up with you shortly to assist. Thank you for your patience!"
+    },
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "I don't have information about wheelchair accessibility at the restaurant. A person from our team will follow up with you soon to assist."
+    },
+    {
+     "handoff": true,
+     "reason": "unknown_answer",
+     "reply": "I don't have information about wheelchair accessibility at the restaurant. A person from our team will follow up with you shortly to assist. Thank you for your patience!"
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "unknown_answer"
+  },
+  {
+   "id": "N01",
+   "text": "¿Tienen algo sin gluten?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, tenemos algunas opciones sin gluten. Por ejemplo, en postres están el Enyucado (porción horneada con coco y anís) y las Cocadas (tres cocadas blancas de coco y panela). En platos fuertes, la Pechuga a la plancha con papas al vapor y ensalada verde es una opción sin gluten. Ten en cuenta que la cocina maneja gluten, lácteos, pescado y mariscos, por lo que no se puede garantizar ausencia total de trazas. ¿Quieres que te ayude a pedir alguno de estos?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Tenemos algunas opciones sin gluten: el postre Enyucado, las Cocadas y la Pechuga a la plancha (que es una opción sin gluten). Ten en cuenta que todos los platos se preparan en una cocina que maneja gluten, por lo que no podemos garantizar ausencia total de trazas. ¿Quieres ordenar alguno de estos?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Tenemos algunas opciones sin gluten: el postre Enyucado, las Cocadas y la Pechuga a la plancha como plato fuerte. Ten en cuenta que la cocina maneja gluten, así que no podemos garantizar ausencia total de trazas. ¿Quieres ordenar alguno de estos?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N02",
+   "text": "¿La limonada de coco tiene lácteos?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, la limonada de coco contiene lácteos, ya que lleva crema de coco. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, la limonada de coco contiene lácteos, ya que es una limonada frappé con crema de coco. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Sí, la limonada de coco contiene lácteos, ya que es una limonada frappé con crema de coco. ¿Quieres que te ayude con algo más?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N04",
+   "text": "Which dishes contain seafood?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Los platos que contienen mariscos o pescado en el menú son:\n\n- Mojarra frita: mojarra entera frita con arroz de coco, patacones y ensalada.\n- Arroz de lisa: arroz tradicional barranquillero con lisa desmenuzada, servido con bollo de yuca y ensalada.\n\n¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Los platos que contienen mariscos o pescado en el menú son:\n\n- Mojarra frita: mojarra entera frita con arroz de coco, patacones y ensalada.\n- Arroz de lisa: arroz tradicional barranquillero con lisa desmenuzada, servido con bollo de yuca y ensalada.\n\n¿Quieres saber algo más o te gustaría ordenar alguno?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Los platos que contienen mariscos o pescado en el menú son:\n\n- Mojarra frita: mojarra entera frita con arroz de coco, patacones y ensalada.\n- Arroz de lisa: arroz tradicional barranquillero con lisa desmenuzada, servido con bollo de yuca y ensalada.\n\n¿Quieres saber algo más o te gustaría ordenar alguno?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N05",
+   "text": "I'm allergic to shellfish, what should I avoid?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "The restaurant prepares all dishes in a kitchen that handles shellfish, so they cannot guarantee the absence of traces. Please be cautious and a team member will follow up with you to assist further."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Our kitchen handles shellfish, so we cannot guarantee no traces. Please avoid dishes like Ceviche de camarón which contains shrimp. For your safety, a team member will follow up with you directly about your allergy."
+    },
+    {
+     "handoff": true,
+     "reason": "allergy",
+     "reply": "Our kitchen handles shellfish, so we can't guarantee no traces. Please avoid dishes like Ceviche de camarón which contains shrimp. For your safety, a team member will follow up with you directly about your allergy."
+    }
+   ],
+   "predicted": true,
+   "predicted_reason": "allergy"
+  },
+  {
+   "id": "N06",
+   "text": "¿Necesito reservar para 4 personas el viernes?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No necesitas reservar para 4 personas, solo es necesario reservar para grupos de 6 personas o más con mínimo 24 horas de anticipación. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No necesitas reservar para 4 personas, solo es necesario reservar para grupos de 6 personas o más con mínimo 24 horas de anticipación. ¿Quieres que te ayude con algo más?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "No necesitas reservar para 4 personas, solo es necesario reservar para grupos de 6 personas o más con mínimo 24 horas de anticipación. ¿Quieres que te ayude con algo más?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N09",
+   "text": "How far in advance do I have to book for a big group?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "For big groups of 6 or more people, you need to book at least 24 hours in advance via WhatsApp. For smaller groups, no reservation is needed. If you want, I can help you with the booking!"
+    },
+    {
+     "handoff": true,
+     "reason": "group_booking",
+     "reply": "For big groups of 6 or more people, you need to book at least 24 hours in advance via WhatsApp. A team member will follow up with you to assist further."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "For big groups of 6 or more people, you need to book at least 24 hours in advance via WhatsApp. For smaller groups, no reservation is needed. If you want, I can help you with the booking!"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": "group_booking"
+  },
+  {
+   "id": "N12",
+   "text": "Great service yesterday, the arepas were amazing.",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "I'm glad to hear you enjoyed the arepas! If you'd like to order more or try something else, just let me know."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Thank you so much! I'm glad you enjoyed the arepas. If you'd like to order more or try something else, just let me know!"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "I'm glad to hear you enjoyed the arepas! If you'd like to order more or try something else, just let me know."
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N15",
+   "text": "¿Cuánto cuesta el domicilio?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. Hacemos domicilios en el norte de Barranquilla (Riomar, Alto Prado, Villa Country y El Golf). ¿Quieres hacer un pedido para domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. ¿Quieres hacer un pedido para domicilio?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "El costo del domicilio es de 5.000 COP y es gratis en pedidos mayores a 80.000 COP. ¿Quieres hacer un pedido para domicilio?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N21",
+   "text": "Quiero una mojarra frita para comer en el local, a nombre de Luis.",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Luis, una mojarra frita para comer en el local cuesta 38,000 pesos. ¿Confirmas tu pedido?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Luis, tu pedido es 1 Mojarra frita para comer en el local. El total es 38,000 COP. ¿Confirmas el pedido?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "Luis, tu pedido es 1 Mojarra frita para comer en el local. El total es 38,000 COP. ¿Confirmas el pedido?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N23",
+   "text": "Can I get two cocadas and a mango juice in water for dine-in? I'm Kim.",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You ordered 2 Cocadas and 1 mango Jugo natural en agua for dine-in. The total is 16,000 COP. Would you like to confirm the order?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You ordered 2 Cocadas and 1 mango Jugo natural en agua for dine-in. The total is 16,000 COP. Would you like to confirm the order?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "You ordered 2 Cocadas and 1 mango Jugo natural en agua for dine-in. The total is 16,000 COP. Would you like to confirm the order?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N26",
+   "text": "Do you have a kids' menu?",
+   "lang": "en",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The menu does not list a specific kids' menu. If you want, I can help you choose some dishes suitable for children from the regular menu."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The menu does not list a specific kids' menu. If you want, I can help you choose some dishes suitable for children from the regular menu."
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "The menu does not list a specific kids' menu. If you want, I can help you choose some dishes suitable for children from the regular menu. Would you like that?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  },
+  {
+   "id": "N28",
+   "text": "¿Para cuántas personas alcanza la porción de patacones?",
+   "lang": "es",
+   "should_handoff": false,
+   "expected_reason": null,
+   "split": "test",
+   "runs": [
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "La porción de Patacones con hogao incluye 6 unidades y es para compartir. ¿Quieres ordenar esa porción?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "La porción de Patacones con hogao es para compartir y contiene 6 unidades. ¿Quieres ordenar esa porción?"
+    },
+    {
+     "handoff": false,
+     "reason": null,
+     "reply": "La porción de Patacones con hogao es para compartir y contiene 6 unidades. ¿Quieres ordenar esa porción?"
+    }
+   ],
+   "predicted": false,
+   "predicted_reason": null
+  }
+ ]
+}

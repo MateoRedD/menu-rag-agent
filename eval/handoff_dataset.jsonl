@@ -1,0 +1,50 @@
+{"id": "P01", "text": "Pedí un domicilio hace dos horas y todavía no llega, esto es una falta de respeto.", "lang": "es", "should_handoff": true, "expected_reason": "complaint", "split": "test"}
+{"id": "P02", "text": "La mojarra que me trajeron estaba cruda por dentro. Quiero que me devuelvan el dinero.", "lang": "es", "should_handoff": true, "expected_reason": "complaint", "split": "test"}
+{"id": "P03", "text": "My order arrived cold and half of it was missing. I'm really upset.", "lang": "en", "should_handoff": true, "expected_reason": "complaint", "split": "test"}
+{"id": "P04", "text": "The waiter was rude to us last night. I want to file a complaint.", "lang": "en", "should_handoff": true, "expected_reason": "complaint", "split": "dev"}
+{"id": "P05", "text": "Tengo alergia severa al maní, ¿me pueden garantizar que la comida no tiene trazas?", "lang": "es", "should_handoff": true, "expected_reason": "allergy", "split": "dev"}
+{"id": "P06", "text": "Mi hijo es alérgico a los mariscos y le da anafilaxia, ¿qué puede comer sin riesgo?", "lang": "es", "should_handoff": true, "expected_reason": "allergy", "split": "test"}
+{"id": "P07", "text": "I have celiac disease and a severe gluten reaction. Can you guarantee no cross-contamination?", "lang": "en", "should_handoff": true, "expected_reason": "allergy", "split": "dev"}
+{"id": "P08", "text": "I carry an EpiPen for a dairy allergy. Is anything on the menu 100% safe for me?", "lang": "en", "should_handoff": true, "expected_reason": "allergy", "split": "dev"}
+{"id": "P09", "text": "Quiero reservar para 10 personas el sábado a las 8 p. m.", "lang": "es", "should_handoff": true, "expected_reason": "group_booking", "split": "dev"}
+{"id": "P10", "text": "Somos 6 y queremos una mesa para el cumpleaños de mi mamá el domingo.", "lang": "es", "should_handoff": true, "expected_reason": "group_booking", "split": "test"}
+{"id": "P11", "text": "Can I book a table for 12 people next Friday?", "lang": "en", "should_handoff": true, "expected_reason": "group_booking", "split": "test"}
+{"id": "P12", "text": "We're a group of 8 coworkers, can we reserve for tomorrow at noon?", "lang": "en", "should_handoff": true, "expected_reason": "group_booking", "split": "dev"}
+{"id": "P13", "text": "Quiero hablar con una persona, no con un bot.", "lang": "es", "should_handoff": true, "expected_reason": "other", "split": "dev"}
+{"id": "P14", "text": "¿Me puede atender el administrador, por favor?", "lang": "es", "should_handoff": true, "expected_reason": "other", "split": "dev"}
+{"id": "P15", "text": "Can I talk to a real person, please?", "lang": "en", "should_handoff": true, "expected_reason": "other", "split": "test"}
+{"id": "P16", "text": "Please transfer me to a manager.", "lang": "en", "should_handoff": true, "expected_reason": "other", "split": "dev"}
+{"id": "P17", "text": "¿Tienen wifi para los clientes?", "lang": "es", "should_handoff": true, "expected_reason": "unknown_answer", "split": "dev"}
+{"id": "P18", "text": "¿Puedo llevar a mi perro al restaurante?", "lang": "es", "should_handoff": true, "expected_reason": "unknown_answer", "split": "dev"}
+{"id": "P19", "text": "Do you host private events or rent the whole place?", "lang": "en", "should_handoff": true, "expected_reason": "unknown_answer", "split": "dev"}
+{"id": "P20", "text": "Is the restaurant wheelchair accessible?", "lang": "en", "should_handoff": true, "expected_reason": "unknown_answer", "split": "test"}
+{"id": "N01", "text": "¿Tienen algo sin gluten?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N02", "text": "¿La limonada de coco tiene lácteos?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N03", "text": "¿Tienen opciones vegetarianas?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N04", "text": "Which dishes contain seafood?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N05", "text": "I'm allergic to shellfish, what should I avoid?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N06", "text": "¿Necesito reservar para 4 personas el viernes?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N07", "text": "Somos 5, ¿hay que reservar?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N08", "text": "Do I need a reservation for two people tonight?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N09", "text": "How far in advance do I have to book for a big group?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N10", "text": "La comida estuvo buenísima, ¡gracias!", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N11", "text": "Todo muy rico, aunque el sancocho estaba un poquito salado.", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N12", "text": "Great service yesterday, the arepas were amazing.", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N13", "text": "The patacones were delicious, I'll come back.", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N14", "text": "¿Hacen domicilios a Riomar?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N15", "text": "¿Cuánto cuesta el domicilio?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N16", "text": "¿Cuánto se demora un domicilio?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N17", "text": "How much is the posta negra?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N18", "text": "Do you deliver to El Golf?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N19", "text": "What time do you close on Sunday?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N20", "text": "Quiero pedir 2 arepas de huevo y una limonada de coco a domicilio a Riomar, soy Ana.", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N21", "text": "Quiero una mojarra frita para comer en el local, a nombre de Luis.", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N22", "text": "I'd like to order a lentil burger for delivery to Alto Prado, my name is Sam.", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N23", "text": "Can I get two cocadas and a mango juice in water for dine-in? I'm Kim.", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N24", "text": "¿Tienen sushi?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N25", "text": "¿Venden pizza?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N26", "text": "Do you have a kids' menu?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N27", "text": "Do you serve beef burgers?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N28", "text": "¿Para cuántas personas alcanza la porción de patacones?", "lang": "es", "should_handoff": false, "expected_reason": null, "split": "test"}
+{"id": "N29", "text": "Can one person eat the patacones alone, or is it for sharing?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
+{"id": "N30", "text": "My friend complained the place was hard to find. What's the address?", "lang": "en", "should_handoff": false, "expected_reason": null, "split": "dev"}
