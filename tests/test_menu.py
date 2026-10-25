@@ -1,7 +1,11 @@
 """Unit tests for price parsing and order totals. No API calls."""
+from datetime import date
+
 import pytest
 
-from menu import DELIVERY_FEE, DELIVERY_ZONES, FREE_DELIVERY_OVER, MENU_PATH, PRICES, price_order
+from menu import DELIVERY_FEE, DELIVERY_ZONES, FREE_DELIVERY_OVER, MENU_PATH, PRICES, WEEKEND_ONLY, price_order
+
+TUESDAY, SATURDAY = date(2026, 10, 20), date(2026, 10, 24)
 
 
 def order(*items):
@@ -27,6 +31,8 @@ def test_delivery_constants_still_match_the_menu():
     assert f"{DELIVERY_FEE:,}".replace(",", ".") + " COP" in menu
     assert f"mayores a {FREE_DELIVERY_OVER:,}".replace(",", ".") in menu
     assert all(zone in menu for zone in DELIVERY_ZONES)
+    for dish in WEEKEND_ONLY:
+        assert "Solo sábados y domingos" in menu.split(f"## {dish}")[1].split("##")[0]
 
 
 # ---------- Totals ----------
@@ -50,6 +56,12 @@ def test_delivery_fee_is_free_only_above_80000(items, expected_fee):
 def test_names_match_ignoring_case_and_accents():
     result = price_order(order(("CARIMANOLAS", 1), ("ceviche de camaron", 1)), "dine_in")
     assert [line["name"] for line in result["items"]] == ["Carimañolas", "Ceviche de camarón"]
+
+
+def test_sancocho_only_on_weekends():
+    with pytest.raises(ValueError, match="Saturdays and Sundays"):
+        price_order(order(("Sancocho de gallina", 1)), "dine_in", today=TUESDAY)
+    assert price_order(order(("Sancocho de gallina", 1)), "dine_in", today=SATURDAY)["total"] == 30000
 
 
 def test_notes_are_kept():

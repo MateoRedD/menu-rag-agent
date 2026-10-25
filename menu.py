@@ -4,6 +4,7 @@ Prices are parsed from data/menu.md, so the menu stays the single source of trut
 """
 import re
 import unicodedata
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from rag import chunk_by_item
@@ -15,6 +16,13 @@ DELIVERY_FEE = 5000
 FREE_DELIVERY_OVER = 80000  # "gratis en pedidos mayores a 80.000 COP" -> strictly greater
 DELIVERY_ZONES = ["Riomar", "Alto Prado", "Villa Country", "El Golf"]
 MAX_QUANTITY = 20  # larger orders are unusual enough to go to a human
+WEEKEND_ONLY = {"Sancocho de gallina"}  # "Solo sábados y domingos"
+COLOMBIA = timezone(timedelta(hours=-5))  # no daylight saving, so a fixed offset is enough
+
+
+def today_in_colombia() -> date:
+    """The server may run in UTC (e.g. in the cloud): Friday 8 p.m. in Barranquilla is already Saturday there."""
+    return datetime.now(COLOMBIA).date()
 
 
 def normalize(text: str) -> str:
@@ -44,12 +52,14 @@ PRICES = parse_prices(MENU_PATH.read_text(encoding="utf-8"))
 _BY_NORMALIZED_NAME = {normalize(name): name for name in PRICES}
 
 
-def price_order(items: list[dict], order_type: str, address: str | None = None) -> dict:
+def price_order(items: list[dict], order_type: str, address: str | None = None, today: date | None = None) -> dict:
     """Validate an order and compute its total.
 
     items: [{"name": "Arepa de huevo", "quantity": 2, "notes": "optional"}]
+    today: injectable for tests; defaults to the current date in Colombia.
     Raises ValueError with a message the agent can show or act on.
     """
+    today = today or today_in_colombia()
     if not items:
         raise ValueError("The order has no items.")
     if order_type not in ("dine_in", "delivery"):
@@ -63,6 +73,8 @@ def price_order(items: list[dict], order_type: str, address: str | None = None) 
         quantity = item["quantity"]
         if not 1 <= quantity <= MAX_QUANTITY:
             raise ValueError(f"Quantity for '{name}' must be between 1 and {MAX_QUANTITY}.")
+        if name in WEEKEND_ONLY and today.weekday() < 5:  # Monday=0 ... Saturday=5, Sunday=6
+            raise ValueError(f"'{name}' is only available on Saturdays and Sundays.")
         lines.append({"name": name, "quantity": quantity, "unit_price": PRICES[name], "notes": item.get("notes")})
 
     subtotal = sum(line["unit_price"] * line["quantity"] for line in lines)
